@@ -4,6 +4,7 @@ const inter = Inter({ subsets: ["latin"] });
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CardHeader, CardContent, Card } from "@/components/ui/card";
+import ConnectInstagramButton from "@/components/ui/connect-instagram-button";
 import AuthButton from "@/components/ui/auth-button";
 
 export default function Component() {
@@ -20,7 +21,7 @@ export default function Component() {
           <Link className="text-sm font-medium hover:underline" href="#">
             pricing
           </Link>
-          <AuthButton text="Sign-in" />
+          <AuthButton />
         </nav>
       </header>
       <main className="flex-1">

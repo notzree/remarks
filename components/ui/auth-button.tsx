@@ -1,13 +1,16 @@
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { development_auth_link } from "@/constants/constants";
+import { useSession, signIn, signOut } from "next-auth/react";
 export default function AuthButton({ text }: any) {
+  const { data: session } = useSession();
+  if (session && session.user) {
+    return (
+      <>
+        <button onClick={() => signOut()}>{text ? text : " Sign out"}</button>
+      </>
+    );
+  }
   return (
-    <Link
-      href={development_auth_link}
-      className={buttonVariants({ variant: "outline" })}
-    >
-      {text}
-    </Link>
+    <>
+      <button onClick={() => signIn()}>{text ? text : " Sign in"}</button>
+    </>
   );
 }
