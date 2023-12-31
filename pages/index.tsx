@@ -1,18 +1,12 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-
 const inter = Inter({ subsets: ["latin"] });
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CardHeader, CardContent, Card } from "@/components/ui/card";
-import { Avatar } from "@/components/ui/avatar";
-import { buttonVariants } from "@/components/ui/button";
+import AuthButton from "@/components/ui/auth-button";
 
 export default function Component() {
-  const auth_link =
-    'https://www.facebook.com/dialog/oauth?client_id=736776564648627&display=page&extras={"setup":{"channel":"IG_API_ONBOARDING"}}&redirect_uri=http://localhost:3000&response_type=token&scope=instagram_basic';
-
   return (
     <div key="1" className="flex flex-col min-h-screen">
       <header className="flex items-center justify-between px-8 py-6 border-b">
@@ -26,12 +20,7 @@ export default function Component() {
           <Link className="text-sm font-medium hover:underline" href="#">
             pricing
           </Link>
-          <Link
-            href={auth_link}
-            className={buttonVariants({ variant: "outline" })}
-          >
-            Sign-in
-          </Link>
+          <AuthButton text="Sign-in" />
         </nav>
       </header>
       <main className="flex-1">
@@ -45,12 +34,7 @@ export default function Component() {
               comment section again.
             </p>
           </div>
-          <Link
-            href={auth_link}
-            className={buttonVariants({ variant: "outline" })}
-          >
-            Get Started
-          </Link>
+          <AuthButton text="Get started" />
         </section>
         <section className="py-24 px-10 bg-background" id="features">
           <h2 className="text-3xl font-bold text-center">features</h2>
